@@ -1,4 +1,15 @@
 package mymultiuserjwt.jwtmultipleuser.repository;
 
-public interface RoleRepository {
+
+import java.util.Optional;
+
+import mymultiuserjwt.jwtmultipleuser.model.Role;
+import mymultiuserjwt.jwtmultipleuser.model.RoleName;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RoleRepository  extends JpaRepository<Role, Long> {
+    Optional<Role> findByName(RoleName roleName);
+
 }
